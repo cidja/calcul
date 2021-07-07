@@ -11,17 +11,48 @@
 </head>
 <body>
     <h2>Bienvenue sur le site pour compter son essence</h2>
-    <div class="app">
+    <div id="app">
         <div class="container">
+            <p>{{ message }}</p>
             <div class="row">
-                <h1 class="carburant">Carburant</h1>
+                <h1 class="carburant">Selectionnez votre carburant :</h1>
+                <div>
+                    <div>
+                        <input type='radio' value="{{ carburants[0] }}"> 
+                        <label for=' {{ carburant[0] }}'>
+                            {{ carburants[0] }}
+                        </label>
+                    </div>
+                    <div>
+                        <input type='radio' value="{{ carburants[1] }}"> 
+                        <label for=' {{ carburant[1] }}'>
+                            {{ carburants[1] }}
+                        </label>
+                    </div>
+                    <div>
+                        <input type='radio' value="{{ carburants[2] }}"> 
+                        <label for=' {{ carburant[2] }}'>
+                            {{ carburants[2] }}
+                        </label>
+                    </div>
+                    <div>
+                        <input type='radio' value="{{ carburants[3] }}"> 
+                        <label for=' {{ carburant[3] }}'>
+                            {{ carburants[3] }}
+                        </label>
+                    </div>
+                    <div>
+                        <input type='radio' value="{{ carburants[4] }}"> 
+                        <label for=' {{ carburant[4] }}'>
+                        {{ carburants[4] }}
+                    </label>
+                    </div>
+                    
+                </div>
                 <ul>
-                    <li>Gazole</li>
-                    <li>Sans Plomb 95</li>
-                    <li>Sans Plomb 98</li>
-                    <li>GPL</li>
-                    <li>E85</li>
+                    <li v-for='carburant in carburants'>{{ carburant }} </li>
                 </ul>
+                <div>Carburant choisi : <span v-model='carburant'></span></div>
             </div>
         </div>
 
@@ -33,9 +64,22 @@
 
         <div class="container">
             <div class="row">
-                <p>Nombre de Kilomètres aller: <input type="number"> km aller</p>
+                <div class="col-6">
+                    <p>Nombre de Kilomètres aller: <input type="number"> km aller</p>
+                </div>
+                <div class="col-6">
+                    <p>Nombre de Kilomètres aller/retour : {{ kmallerretour }} </p>
+                </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">Nombre de Km par semaine : {{ kmsem }}. Ce qui représente : {{ consosemaine }} L/semaine et coûte {{ eurossemaine }} €/semaine.</div>
+            <div class="row">Nombre de Km par mois : {{ kmmois }}  ce qui représente : {{ consomois }} L/mois et coûte {{ eurosmois }} €/mois.</div>
+            <div class="row">Nombre de Km par an : {{ kman }} ce qui représente : {{ consoan }} L/an et coûte {{ eurosan }} €/an.</div>
+        </div>
     </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
